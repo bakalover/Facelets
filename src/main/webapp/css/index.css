@@ -1,0 +1,65 @@
+svg{
+    margin-top: 2px;
+    margin-left: 17px;
+}
+body{
+    /*background-image: radial-gradient(#e27f5e,rgb(196, 62, 62));*/
+    background-image: radial-gradient(circle,#e27f5e,rgb(196, 62, 62));
+}
+#header {
+    width: 1515px;
+    border: solid 2px #ecc18c;
+    font-family: sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: right;
+    min-width: 900px;
+    color: rgba(238, 242, 188, 0.795);
+    text-align: center;
+}
+.mainTd{
+    align-content: center;
+    width: 420px;
+    height: 210px;
+    border: solid 2px #ecc18c ;
+}
+form > div{
+    margin-top: 20px;
+    margin-left: 100px;
+}
+.mainTable{
+    margin-left: 290px;
+    margin-top: 115px;
+    min-width: 900px ;
+    box-shadow: 10px 10px 7px ;
+    outline-style: groove;
+    outline-color: #ecc18c;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /*НАСЛЕДОВАНИЕ + КАСКАДИРОВАНИЕ(*)*/
+}
+input:hover{
+    color:darkblue;
+    text-decoration: none;
+}
+#SUBMIT:focus{
+    color: rgb(255, 0, 0);
+}
+.redirect::first-line{
+    font-size: 30px;
+}
+.redirect:hover{
+    font-style: italic;
+}
+form > div::first-letter{
+    font-size: 18px;
+    font-family: Georgia; /* КАСКАДИРОВАНИЕ*/
+    font-weight: 700;
+}
+a{
+    color:#f2b56c;
+    text-decoration:none;
+}
+input{
+    background-color: #ecc18c;
+    border-color: #ecc18c;
+}

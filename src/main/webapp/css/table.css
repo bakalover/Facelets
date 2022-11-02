@@ -1,0 +1,27 @@
+.mainTable{
+    margin-top: 50px;
+    min-width: 900px ;
+    box-shadow: 10px 10px 7px ;
+    outline-style: groove;
+    outline-color: #ecc18c;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.mainTable td{
+    text-align: center;
+    align-content: center;
+    width: 300px;
+    height: 55px;
+    border: solid 2px #ecc18c ;
+}
+a{
+    text-decoration: none;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ecc18c;
+}
+a:hover{
+    font-style: italic;
+}
+body{
+    background-image: radial-gradient(circle,rgb(196, 62, 62),#e27f5e);
+}
