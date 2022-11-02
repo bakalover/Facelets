@@ -1,0 +1,45 @@
+body{
+    background-image: radial-gradient(circle,rgb(196, 62, 62),#e27f5e);
+}
+#header {
+    width: 1515px;
+    border: solid 2px #ecc18c;
+    font-family: sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: right;
+    min-width: 900px;
+    color: rgba(238, 242, 188, 0.795);
+    text-align: center;
+}
+#clock {
+    margin-left: 500px;
+    max-width: 500px;
+    min-width: 100px;
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    padding: 10px;
+    font-weight: bolder;
+    /*border-top: 10px solid #55c49f;*/
+}
+#dayOfWeek {
+    /*display: block;*/
+    text-align: center;
+    font-weight: normal;
+    font-family: "Agency FB";
+    font-size: 24px;
+}
+a {
+    margin-left: 650px ;
+    margin-top: 200px;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ecc18c;
+}
+a:hover{
+    font-style: italic;
+}
