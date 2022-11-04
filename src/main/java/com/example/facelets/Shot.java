@@ -16,7 +16,7 @@ public class Shot {
     private boolean p3X = false;
     private boolean p4X = false;
     private double y = 0.0;
-    private double r = 0.0;
+    private double r = 1.0;
 
     public boolean isN1X() {
         return n1X;
@@ -104,5 +104,8 @@ public class Shot {
 
     public void setR(double r) {
         this.r = r;
+    }
+    public void test(){
+        r = r+y;
     }
 }
