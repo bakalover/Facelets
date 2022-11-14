@@ -15,7 +15,7 @@ public class Shot {
     private boolean p2X = false;
     private boolean p3X = false;
     private boolean p4X = false;
-    private double y = 0.0;
+    private double y;
     private double r = 1.0;
 
     public boolean isN1X() {
@@ -106,6 +106,5 @@ public class Shot {
         this.r = r;
     }
     public void test(){
-        r = r+y;
     }
 }
