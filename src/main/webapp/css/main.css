@@ -7,6 +7,9 @@
 #resultAndErrors{
     border: solid 2px #ecc18c ;
 }
+canvas{
+    border: solid 2px #ecc18c;
+}
 /*svg{
     margin-top: 2px;
     margin-left: 17px;
