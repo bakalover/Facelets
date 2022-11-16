@@ -5,11 +5,6 @@ $(function (){
         var y_offset = e.offsetY;
         var x = ((x_offset - 315)*0.5)/35;
         var y = -((y_offset - 315)*0.5)/35;
-        console.log(x_offset);
-        console.log(y_offset);
-        console.log(x);
-        console.log(y);
-        console.log(r);
         var ctx = document.getElementById("canvas").getContext("2d");
         if((x<=0&&y>=0&&x**2+y**2<=r**2)||(x<=0&&y<=0&&y>=(-2)*x-r)||(x>=0&&y<=0&&x<=r&&y<=r)){
             ctx.fillStyle = "rgb(0,255,0)";

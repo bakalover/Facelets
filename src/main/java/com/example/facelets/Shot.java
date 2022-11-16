@@ -1,11 +1,12 @@
 package com.example.facelets;
-/*import javax.faces.bean.ManagedBean;
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
-@Named
+import java.io.Serializable;
+import java.util.ArrayList;
+
+//@Named
 @SessionScoped
-@ManagedBean*/
-public class Shot {
+public class Shot implements Serializable {
+    private ArrayList<SepShot> shots = new ArrayList<>();
     private boolean n4X = false;
     private boolean n3X = false;
     private boolean n2X = false;
@@ -105,6 +106,22 @@ public class Shot {
     public void setR(double r) {
         this.r = r;
     }
-    public void test(){
+
+    public ArrayList<SepShot> getShots() {
+        return shots;
+    }
+
+    public void setShots(ArrayList<SepShot> shots) {
+        this.shots = shots;
+    }
+
+    public void add(){
+        if(n1X){
+            SepShot sep = new SepShot();
+            sep.setX(n1X);
+            sep.setY(y);
+            sep.setR(r);
+            shots.add(sep);
+        }
     }
 }
