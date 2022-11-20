@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 //@Named
 @SessionScoped
-public class Shot implements Serializable {
+public class Form implements Serializable {
     private ArrayList<SepShot> shots = new ArrayList<>();
     private boolean n4X = false;
     private boolean n3X = false;

@@ -23,125 +23,48 @@
         <div id="userInput">
             <h:form id="inputVals" >
                 <div>
-                    <h:selectBooleanCheckbox label="-4" value="#{shot.n4X}" id="n4X"/>
+                    <h:selectBooleanCheckbox label="-4" value="#{form.n4X}" id="n4X"/>
                     <label for="n4X">-4</label>
-                    <h:selectBooleanCheckbox label="-3" value="#{shot.n2X}" id="n3X"/>
+                    <h:selectBooleanCheckbox label="-3" value="#{form.n2X}" id="n3X"/>
                     <label for="n3X">-3</label>
-                    <h:selectBooleanCheckbox label="-2" value="#{shot.n3X}" id="n2X"/>
+                    <h:selectBooleanCheckbox label="-2" value="#{form.n3X}" id="n2X"/>
                     <label for="n2X">-2</label>
-                    <h:selectBooleanCheckbox label="-1" value="#{shot.n1X}" id="n1X"/>
+                    <h:selectBooleanCheckbox label="-1" value="#{form.n1X}" id="n1X"/>
                     <label for="n1X">-1</label>
-                    <h:selectBooleanCheckbox label="0" value="#{shot.p0X}" id="p0X"/>
+                    <h:selectBooleanCheckbox label="0" value="#{form.p0X}" id="p0X"/>
                     <label for="p0X">0</label>
-                    <h:selectBooleanCheckbox label="1" value="#{shot.p1X}" id="p1X"/>
+                    <h:selectBooleanCheckbox label="1" value="#{form.p1X}" id="p1X"/>
                     <label for="p0X">1</label>
-                    <h:selectBooleanCheckbox label="2" value="#{shot.p2X}" id="p2X"/>
+                    <h:selectBooleanCheckbox label="2" value="#{form.p2X}" id="p2X"/>
                     <label for="p2X">2</label>
-                    <h:selectBooleanCheckbox label="3" value="#{shot.p3X}" id="p3X"/>
+                    <h:selectBooleanCheckbox label="3" value="#{form.p3X}" id="p3X"/>
                     <label for="p3X">3</label>
-                    <h:selectBooleanCheckbox label="4" value="#{shot.p4X}" id="p4X"/>
+                    <h:selectBooleanCheckbox label="4" value="#{form.p4X}" id="p4X"/>
                     <label for="p4X">4</label>
                 </div>
                 <div>
-                    <h:inputText value="#{shot.y}" id="yInput" required="true">
+                    <h:inputText value="#{form.y}" id="yInput" converter="#{javax.faces.Double}">
                         <f:validateDoubleRange minimum="-3" maximum="5"/>
                     </h:inputText>
                 </div>
                 <div>
-                    <h:outputText id="outputForSlider" value="Set radius to #{shot.r}"/>
-                    <h:inputHidden id="rInput" value="#{shot.r}"/>
+                    <h:outputText id="outputForSlider" value="Set radius to #{form.r}"/>
+                    <h:inputHidden id="rInput" value="#{form.r}"/>
                     <p:slider for="rInput" display="outputForSlider" style="width: 200px" displayTemplate="Set radius to {value}" minValue="1" maxValue="4" step="0.5" onSlideEnd="changePicture()"/>
                 </div>
                 <div>
-                    <h:commandButton value="Make a shot" action="#{shot.add()}"/>
+                    <h:commandButton value="Make a shot" action="#{form.add()}"/>
                 </div>
             </h:form>
         </div>
 
         <div id="resultAndErrors">
-            ${shot.y}
-            ${shot.r}
-            ${shot.n4X}
+            ${form.y}
+            ${form.r}
+            ${form.n4X}
             <h:messages style="color: red"/>
         </div>
     <a href="table.xhtml" target="_self"><span>GO TABLE!</span></a>
     <a href="start.xhtml" target="_self"><span>GO TO START!</span></a>
 </h:body>
 </html>
-<!--<table class="mainTable">
-    <tr>
-        <td rowspan="2" id="image" class="mainTd">
-            <svg width="410" height="410" viewBox="0 0 410 410" fill="none" xmlns="http://www.w3.org/2000/svg" class = "image" id="svgImage">
-
-            </svg>
-        </td>
-        <td style = "text-align: center;" class="redirect"><a href="./table.jsp" target="_self" ><span>SHOW RESULTS</span></a></td>
-    </tr>
-    <tr>
-        <td class="mainTd">
-            <form method="post" action="./controller" class = "Form" name = "form">
-                <table>
-                    <tr>
-                        <td style="height: 30px">
-                            <span style="margin-left: 15px;">
-                                X:
-                                <input type="checkbox" name="x" value="-4" id="radioxm4"/>
-                                <label for="radioxm4">-4</label>
-                                <input type="checkbox" name="x" value="-3" id="radioxm3"/>
-                                <label for="radioxm3">-3</label>
-                                <input type="checkbox" name="x" value="-2" id="radioxm2"/>
-                                <label for="radioxm2">-2</label>
-                                <input type="checkbox" name="x" value="-1"  id="radioxm1"/>
-                                <label for="radioxm1">-1</label>
-                                <input type="checkbox" name="x" value="0"  id="radiox0"/>
-                                <label for="radiox0">0</label>
-                                <input type="checkbox" name="x" value="1" id="radiox1"/>
-                                <label for="radiox1">1</label>
-                                <input type="checkbox" name="x" value="2" id="radiox2"/>
-                                <label for="radiox2">2</label>
-                                <input type="checkbox" name="x" value="3" id="radiox3"/>
-                                <label for="radiox3">3</label>
-                                <input type="checkbox" name="x" value="4" id="radiox4"/>
-                                <label for="radiox4">4</label>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="height: 30px">
-                            <span style="margin-left: 15px;"> Y:<input type="text" name="y" size="12" id="y" maxlength="10"/></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="height: 30px">
-                            <span style="margin-left: 15px;">
-                                R:
-
-                                <input type="radio" name="r" value="1.0" id="radior1.0"/>
-                                <label for="radior1.0">1.0</label>
-                                <input type="radio" name="r" value="1.5" id="radior1.5"/>
-                                <label for="radior1.5">1.5</label>
-                                <input type="radio" name="r" value="2.0" id="radior2.0"/>
-                                <label for="radior2.0">2.0</label>
-                                <input type="radio" name="r" value="2.5" id="radior2.5"/>
-                                <label for="radior2.5">2.5</label>
-                                <input type="radio" name="r" value="3.0" id="radior3.0"/>
-                                <label for="radior3.0">3.0</label>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="height: 70px; text-align: center ">
-                            <span style="margin-left: 15px; margin-top: 20px">
-                                Submit:
-                                <input type="submit" value="SEND" name = "submButton" id="SUBMIT">
-                            </span>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" class="Message" style="color: red; border: solid 2px #ecc18c ;text-align: center;font-size: 25px"></td>
-    </tr>
-</table>-->

@@ -4,7 +4,7 @@ function clock()
 
     var time = [date.getHours(), date.getMinutes(), date.getSeconds()];
     var days = date.getDay();
-    var daysOfWeek = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
+    var daysOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
 
     if(time[0] < 10){
         time[0] = "0"+ time[0];

@@ -4,8 +4,8 @@
               xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
                                   https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_3_0.xsd">
     <managed-bean>
-        <managed-bean-name>shot</managed-bean-name>
-        <managed-bean-class>com.example.facelets.Shot</managed-bean-class>
+        <managed-bean-name>form</managed-bean-name>
+        <managed-bean-class>com.example.facelets.Form</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 </faces-config>
