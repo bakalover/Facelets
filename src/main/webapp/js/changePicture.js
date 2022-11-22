@@ -1,8 +1,9 @@
-let dots = [[],[],[],[],[],[],[]];
-console.log(dots);
+let dots;
 function restoreDots(r){
-    for (let i = 0; i < dots[(r-1)*2].length; i++) {
-        draw(dots[(r-1)*2][i].x_offset,dots[(r-1)*2][i].y_offset,dots[(r-1)*2][i].status);
+    if(Array.isArray(dots)) {
+        for (let i = 0; i < dots[(r - 1) * 2].length; i++) {
+            draw(dots[(r - 1) * 2][i].x_offset, dots[(r - 1) * 2][i].y_offset, dots[(r - 1) * 2][i].status);
+        }
     }
 }
 function changePicture(){
@@ -13,7 +14,10 @@ function changePicture(){
         ctx.drawImage(image,0,0); // Canvas ждёт пока svg загрузиться, а потом рисует
         restoreDots(r);
     }
-    dots = JSON.parse(localStorage.getItem("DOTS"));
+    dots = JSON.parse(sessionStorage.getItem("DOTS"));
+    if(dots===null){
+        dots = [[],[],[],[],[],[],[]];
+    }
     switch (r){
         case "1":
             image.src = "images/R1.svg";

@@ -1,9 +1,12 @@
 package com.example.facelets;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-//@Named
+@Named
 @SessionScoped
 public class Form implements Serializable {
     private ArrayList<SepShot> shots = new ArrayList<>();
@@ -17,7 +20,17 @@ public class Form implements Serializable {
     private boolean p3X = false;
     private boolean p4X = false;
     private double y;
+
+    private double hiddenY;
     private double r = 1.0;
+
+    public double getHiddenY() {
+        return hiddenY;
+    }
+
+    public void setHiddenY(double hiddenY) {
+        this.hiddenY = hiddenY;
+    }
 
     public boolean isN1X() {
         return n1X;
@@ -116,12 +129,20 @@ public class Form implements Serializable {
     }
 
     public void add(){
-        if(n1X){
-            SepShot sep = new SepShot();
-            sep.setX(n1X);
-            sep.setY(y);
-            sep.setR(r);
-            shots.add(sep);
-        }
+        SepShot sep = new SepShot();
+        sep.setX(true);
+        sep.setY(y);
+        sep.setR(r);
+        shots.add(sep);
+    }
+    public void addFromCanvas(){
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        //double r = new Double(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("r"));
+        //double y = new Double(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("y"));
+        SepShot sep = new SepShot();
+        sep.setR(5.0);
+        sep.setY(2.0);
+        sep.setX(true);
+        shots.add(sep);
     }
 }

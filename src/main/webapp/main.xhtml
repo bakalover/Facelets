@@ -15,13 +15,17 @@
     <script src="js/changePicture.js" type="text/javascript"></script>
 </h:head>
 <h:body>
+        <h:form id="inputVals" >
         <div>
-        <div id="boxForImage">
-            <canvas id="canvas" width="610" height="610"></canvas>
-        </div>
+            <h:inputHidden id="hidy" value="#{form.hiddenY}"/>
+            <h:commandButton style="display: none" id="TESTINGPOINTS" actionListener="#{form.add}" onclick="console.log('click')">
+                <f:ajax execute="@form"/>
+            </h:commandButton>
+            <div id="boxForImage">
+                <canvas id="canvas" width="610" height="610"></canvas>
+            </div>
         </div>
         <div id="userInput">
-            <h:form id="inputVals" >
                 <div>
                     <h:selectBooleanCheckbox label="-4" value="#{form.n4X}" id="n4X"/>
                     <label for="n4X">-4</label>
@@ -55,9 +59,8 @@
                 <div>
                     <h:commandButton value="Make a shot" action="#{form.add()}"/>
                 </div>
-            </h:form>
         </div>
-
+        </h:form>
         <div id="resultAndErrors">
             ${form.y}
             ${form.r}

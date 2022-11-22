@@ -20,13 +20,16 @@ $(function (){
         var x = ((x_offset - 315)*0.5)/35;
         var y = -((y_offset - 315)*0.5)/35;
         dots[(r-1)*2].push(new Dot(x_offset,y_offset,check_shot(x,y,r)));
-        localStorage.setItem("DOTS",JSON.stringify(dots));
+        sessionStorage.setItem("DOTS",JSON.stringify(dots));
         if(check_shot(x,y,r)){
             draw(x_offset,y_offset,true);
         }
         else{
            draw(x_offset,y_offset,false);
         }
+        $('#inputVals\\:TESTINGPOINTS').click()
+        //$("#hidy").val(y);
+        //remCom();
        /* $.ajax({
             method: "POST",
             url: "./controller",
