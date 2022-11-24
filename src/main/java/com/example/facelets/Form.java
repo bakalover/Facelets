@@ -1,4 +1,8 @@
 package com.example.facelets;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -139,31 +143,31 @@ public class Form implements Serializable {
     public String add(){
         try {
             if (n4X) {
-                shots.add(new SepShot(-4, y, r));
+                saveIntoDB(new SepShot(-4,y,r,checkShot(-4,y,r)));
             }
             if (n3X) {
-                shots.add(new SepShot(-3, y, r));
+                saveIntoDB(new SepShot(-3,y,r,checkShot(-3,y,r)));
             }
             if (n2X) {
-                shots.add(new SepShot(-2, y, r));
+                saveIntoDB(new SepShot(-2,y,r,checkShot(-2,y,r)));
             }
             if (n1X) {
-                shots.add(new SepShot(-1, y, r));
+                saveIntoDB(new SepShot(-1,y,r,checkShot(-1,y,r)));
             }
             if (p0X) {
-                shots.add(new SepShot(0, y, r));
+                saveIntoDB(new SepShot(0,y,r,checkShot(0,y,r)));
             }
             if (p1X) {
-                shots.add(new SepShot(1, y, r));
+                saveIntoDB(new SepShot(1,y,r,checkShot(1,y,r)));
             }
             if (p2X) {
-                shots.add(new SepShot(2, y, r));
+                saveIntoDB(new SepShot(2,y,r,checkShot(2,y,r)));
             }
             if (p3X) {
-                shots.add(new SepShot(3, y, r));
+                saveIntoDB(new SepShot(3,y,r,checkShot(3,y,r)));
             }
             if (p4X) {
-                shots.add(new SepShot(4, y, r));
+                saveIntoDB(new SepShot(4,y,r,checkShot(4,y,r)));
             }
             return "success";
         }
@@ -172,7 +176,26 @@ public class Form implements Serializable {
             return "error";
         }
     }
-    public void addFromCanvas(){
-        shots.add(new SepShot(hiddenX,hiddenY,r));
+    public String addFromCanvas(){
+        try {
+            saveIntoDB(new SepShot(hiddenX, hiddenY, r, checkShot(hiddenX, hiddenY, r)));
+            return "success";
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    public boolean checkShot(double x, double y, double r){
+        return (x<=0&&y>=0&&(x*x)+(y*y)<=(r*r))||(x<=0&&y<=0&&y>=(-2)*x-r)||(x>=0&&y<=0&&x<=r&&y<=r);
+    }
+
+    public void saveIntoDB(SepShot sep){
+        Session session = Hiber.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(sep);
+        transaction.commit();
+        session.close();
     }
 }
