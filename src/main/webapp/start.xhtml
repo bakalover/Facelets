@@ -8,13 +8,13 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
 
-<head>
+<h:head>
     <title>Start page</title>
     <link rel="stylesheet" type="text/css" href="css/start.css"/>
     <script type="text/javascript" src="js/clock.js"/>
-</head>
+</h:head>
 
-<body onload="clock()">
+<h:body onload="clock()">
     <div>
         <p id="header">Шпренгер Константин Вар. № 462708 P32091</p>
     </div>
@@ -22,6 +22,6 @@
     </div>
     <div id="dayOfWeek">
     </div>
-    <a href="main.xhtml" target="_self"><span>GO TO SHOOTING!</span></a>
-</body>
+    <h:link value="GO TO SHOOTING!" outcome="main" target="_self"/>
+</h:body>
 </html>

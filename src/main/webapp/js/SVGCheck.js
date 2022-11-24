@@ -27,24 +27,12 @@ $(function (){
         else{
            draw(x_offset,y_offset,false);
         }
-        $('#inputVals\\:TESTINGPOINTS').click()
-        //$("#hidy").val(y);
-        //remCom();
-       /* $.ajax({
-            method: "POST",
-            url: "./controller",
-            data: {x: x, y: y, r: r}
-        }).done(function (){
-            console.log("done");
-        }).fail(function (){
-            console.log("fail");
-        });*/
-        /*if(checkR==false){
-            jQuery(".Message").html("Выберете радиус!");
-            e.preventDefault();
-        }*/
+        $('#inputVals\\:hidyY').val(y);
+        $('#inputVals\\:hidyX').val(x);
+        $('#inputVals\\:CanvasRequest').click();
     });
 });
+
 class Dot{
     x_offset;
     y_offset;

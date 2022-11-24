@@ -5,9 +5,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
-
-@Named
-@SessionScoped
 public class Form implements Serializable {
     private ArrayList<SepShot> shots = new ArrayList<>();
     private boolean n4X = false;
@@ -22,15 +19,9 @@ public class Form implements Serializable {
     private double y;
 
     private double hiddenY;
-    private double r = 1.0;
 
-    public double getHiddenY() {
-        return hiddenY;
-    }
-
-    public void setHiddenY(double hiddenY) {
-        this.hiddenY = hiddenY;
-    }
+    private double hiddenX;
+    private double r;
 
     public boolean isN1X() {
         return n1X;
@@ -112,13 +103,30 @@ public class Form implements Serializable {
         return y;
     }
 
+    public double getHiddenX() {
+        return hiddenX;
+    }
+
+    public double getHiddenY() {
+        return hiddenY;
+    }
+
     public void setY(double y) {
         this.y = y;
+    }
+
+    public void setHiddenX(double hiddenX) {
+        this.hiddenX = hiddenX;
+    }
+
+    public void setHiddenY(double hiddenY) {
+        this.hiddenY = hiddenY;
     }
 
     public void setR(double r) {
         this.r = r;
     }
+
 
     public ArrayList<SepShot> getShots() {
         return shots;
@@ -128,21 +136,43 @@ public class Form implements Serializable {
         this.shots = shots;
     }
 
-    public void add(){
-        SepShot sep = new SepShot();
-        sep.setX(true);
-        sep.setY(y);
-        sep.setR(r);
-        shots.add(sep);
+    public String add(){
+        try {
+            if (n4X) {
+                shots.add(new SepShot(-4, y, r));
+            }
+            if (n3X) {
+                shots.add(new SepShot(-3, y, r));
+            }
+            if (n2X) {
+                shots.add(new SepShot(-2, y, r));
+            }
+            if (n1X) {
+                shots.add(new SepShot(-1, y, r));
+            }
+            if (p0X) {
+                shots.add(new SepShot(0, y, r));
+            }
+            if (p1X) {
+                shots.add(new SepShot(1, y, r));
+            }
+            if (p2X) {
+                shots.add(new SepShot(2, y, r));
+            }
+            if (p3X) {
+                shots.add(new SepShot(3, y, r));
+            }
+            if (p4X) {
+                shots.add(new SepShot(4, y, r));
+            }
+            return "success";
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return "error";
+        }
     }
     public void addFromCanvas(){
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-        //double r = new Double(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("r"));
-        //double y = new Double(FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("y"));
-        SepShot sep = new SepShot();
-        sep.setR(5.0);
-        sep.setY(2.0);
-        sep.setX(true);
-        shots.add(sep);
+        shots.add(new SepShot(hiddenX,hiddenY,r));
     }
 }
