@@ -12,6 +12,8 @@ public class SepShot {
     private double r;
 
     private boolean valid;
+
+    public SepShot(){}
     public SepShot(double x, double y, double r, boolean valid){
         this.r = r;
         this.y = y;

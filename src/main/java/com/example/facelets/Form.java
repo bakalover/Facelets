@@ -2,6 +2,7 @@ package com.example.facelets;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -9,7 +10,9 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 public class Form implements Serializable {
+
     private ArrayList<SepShot> shots = new ArrayList<>();
     private boolean n4X = false;
     private boolean n3X = false;
@@ -169,7 +172,9 @@ public class Form implements Serializable {
             if (p4X) {
                 saveIntoDB(new SepShot(4,y,r,checkShot(4,y,r)));
             }
+            updateLocalTable();
             return "success";
+
         }
         catch (Exception e){
             e.printStackTrace();
@@ -179,6 +184,7 @@ public class Form implements Serializable {
     public String addFromCanvas(){
         try {
             saveIntoDB(new SepShot(hiddenX, hiddenY, r, checkShot(hiddenX, hiddenY, r)));
+            updateLocalTable();
             return "success";
         }
         catch (Exception e){
@@ -192,10 +198,29 @@ public class Form implements Serializable {
     }
 
     public void saveIntoDB(SepShot sep){
-        Session session = Hiber.getSessionFactory().openSession();
-        Transaction transaction = session.beginTransaction();
-        session.save(sep);
-        transaction.commit();
-        session.close();
+        try {
+            Session session = Hiber.getSessionFactory().openSession();
+            Transaction transaction = session.beginTransaction();
+            session.save(sep);
+            transaction.commit();
+            session.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void updateLocalTable(){
+        try{
+            Session session = Hiber.getSessionFactory().openSession();
+            Transaction transaction = session.beginTransaction();
+            Query query = session.createSQLQuery("select * from \"SHOTS\"").addEntity(SepShot.class);
+            shots = (ArrayList<SepShot>) query.list();
+            session.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 }
