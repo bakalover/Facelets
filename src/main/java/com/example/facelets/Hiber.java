@@ -16,7 +16,7 @@ public class Hiber {
         }
         try{
             Configuration configuration = new Configuration();
-            sessionFactory =  configuration.configure( new File("C:/IntellijProjects/Facelets/src/main/webapp/WEB-INF/hibernate.cfg.xml")).buildSessionFactory();
+            sessionFactory =  configuration.configure( new File("/home/studs/s335162/hibernate.cfg.xml")).buildSessionFactory(); // "C:/IntellijProjects/Facelets/src/main/webapp/WEB-INF/hibernate.cfg.xml"
         }
         catch (Exception e){
             e.printStackTrace();

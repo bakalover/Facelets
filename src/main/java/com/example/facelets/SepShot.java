@@ -2,10 +2,10 @@ package com.example.facelets;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "\"SHOTS\"")
+@Table(name = "SHOTS") //On windows add "" to SHOTS
 public class SepShot {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "s335162_gen")
     private int id;
     private double x;
     private double y;
@@ -13,12 +13,24 @@ public class SepShot {
 
     private boolean valid;
 
+    private String status;
+
     public SepShot(){}
     public SepShot(double x, double y, double r, boolean valid){
         this.r = r;
         this.y = y;
         this.x = x;
         this.valid = valid;
+        if(valid){
+            this.status = "HIT";
+        }
+        else{
+            this.status = "MISS";
+        }
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public int getId() {
@@ -55,6 +67,10 @@ public class SepShot {
 
     public void setX(double x) {
         this.x = x;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public void setValid(boolean valid) {
