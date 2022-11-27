@@ -4,6 +4,7 @@ function clock()
 
     var time = [date.getHours(), date.getMinutes(), date.getSeconds()];
     var days = date.getDay();
+
     var daysOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
 
     if(time[0] < 10){
@@ -19,9 +20,8 @@ function clock()
     var curr_time = [time[0], time[1], time[2]].join(':');
     var clock = document.getElementById("clock");
     var day = document.getElementById("dayOfWeek");
-
     clock.innerHTML = curr_time;
     day.innerHTML = daysOfWeek[days];
-
     setTimeout("clock()", 1000);
 }
+window.onload = function(){clock();};

@@ -14,32 +14,47 @@ body{
     text-align: center;
 }
 #clock {
+    text-align: center;
     margin-left: 500px;
     max-width: 500px;
     min-width: 100px;
     margin-top: 50px;
     text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Wide Latin";
     font-size: 50px;
     padding: 10px;
     font-weight: bolder;
     /*border-top: 10px solid #55c49f;*/
 }
 #dayOfWeek {
-    /*display: block;*/
+    animation-duration: 2s;
+    animation-name: slidein;
     text-align: center;
     font-weight: normal;
-    font-family: "Agency FB";
-    font-size: 24px;
+    font-family: "Segoe Script";
+    font-size: 30px;
 }
 a {
-    margin-left: 650px ;
+    text-align: center;
+    margin-left: 620px ;
     margin-top: 200px;
     text-decoration: none;
     font-size: 30px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Segoe Script";
     color: #ecc18c;
 }
 a:hover{
     font-style: italic;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
 }

@@ -9,11 +9,26 @@
 
 <h:head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/table.css"/>
 </h:head>
 
 <h:body>
     <h:link value="GO SHOOTING!" outcome="main" target="_self"/>
     <table>
+        <tr>
+            <td>
+                X
+            </td>
+            <td>
+                Y
+            </td>
+            <td>
+                R
+            </td>
+            <td>
+                STATUS
+            </td>
+        </tr>
         <c:forEach items="${form.shots}" var="pam">
             <tr>
                 <td>

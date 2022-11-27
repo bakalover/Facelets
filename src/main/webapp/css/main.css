@@ -1,14 +1,36 @@
-#svgImage{
-    border: solid 2px #ecc18c ;
+body{
+    background-image: radial-gradient(#e27f5e,rgb(196, 62, 62));
 }
-#userInput{
+#svgImage{
     border: solid 2px #ecc18c ;
 }
 #resultAndErrors{
     border: solid 2px #ecc18c ;
 }
 canvas{
+    margin: 7px;
     border: solid 2px #ecc18c;
+    border-style: dashed;
+}
+#canvasInput{
+    width: 630px;
+    height: 630px;
+}
+a{
+    font-size: 30px;
+    font-style: italic;
+    color:#f2b56c;
+    text-decoration:none;
+}
+td{
+    border: solid 2px #ecc18c;
+    width: 320px;
+    height: 320px;
+}
+table{
+    border-style: dashed;
+    box-shadow: 10px 10px 7px ;
+    margin-left: 250px;
 }
 /*svg{
     margin-top: 2px;
