@@ -12,7 +12,12 @@
             <value>1.0</value>
         </managed-property>
     </managed-bean>
-    
+
+    <converter>
+        <converter-id>sliderConv</converter-id>
+        <converter-class>com.example.facelets.SliderConverter</converter-class>
+    </converter>
+
     <navigation-rule>
         <from-view-id>/table.xhtml</from-view-id>
         <navigation-case>
