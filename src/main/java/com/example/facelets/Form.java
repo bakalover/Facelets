@@ -214,7 +214,7 @@ public class Form implements Serializable {
         try{
             Session session = Hiber.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
-            Query query = session.createSQLQuery("select * from SHOTS").addEntity(SepShot.class); //On windows add "" to SHOTS
+            Query query = session.createSQLQuery("select * from \"SHOTS\"").addEntity(SepShot.class); //On windows add "" to SHOTS
             shots = (ArrayList<SepShot>) query.list();
             session.close();
         }

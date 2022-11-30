@@ -2,7 +2,7 @@ package com.example.facelets;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "SHOTS") //On windows add "" to SHOTS
+@Table(name = "\"SHOTS\"") //On windows add "" to SHOTS
 public class SepShot {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "s335162_gen")

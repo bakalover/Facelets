@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script src="js/SVGCheck.js" type="text/javascript"/>
     <script src="js/changePicture.js" type="text/javascript"/>
+    <script src="js/check.js" type="text/javascript"/>
 </h:head>
 <h:body>
     <h:form id="inputVals" >
@@ -32,12 +33,15 @@
                 </td>
                 <td>
                     <div id="userInput">
+                        <div id="messageForX" style="text-align: center">
+
+                        </div>
                         <div>
                             <h:selectBooleanCheckbox label="-4" value="#{form.n4X}" id="n4X"/>
                             <label for="n4X">-4</label>
-                            <h:selectBooleanCheckbox label="-3" value="#{form.n2X}" id="n3X"/>
+                            <h:selectBooleanCheckbox label="-3" value="#{form.n3X}" id="n3X"/>
                             <label for="n3X">-3</label>
-                            <h:selectBooleanCheckbox label="-2" value="#{form.n3X}" id="n2X"/>
+                            <h:selectBooleanCheckbox label="-2" value="#{form.n2X}" id="n2X"/>
                             <label for="n2X">-2</label>
                             <h:selectBooleanCheckbox label="-1" value="#{form.n1X}" id="n1X"/>
                             <label for="n1X">-1</label>
@@ -67,7 +71,7 @@
                             <p:slider for="rInput" display="outputForSlider" style="width: 200px" displayTemplate="Set radius to {value}" minValue="1" maxValue="4" step="0.5" onSlideEnd="changePicture()"/>
                         </div>
                         <div style="margin-left: 115px; margin-top: 35px;">
-                            <h:commandButton value="Make a shot" action="#{form.add()}"/>
+                            <h:commandButton id="submButt" value="Make a shot" action="#{form.add()}"/>
                         </div>
                     </div>
                 </td>
@@ -84,9 +88,9 @@
             </tr>
         </table>
         <div id="Errors">
-            <h:message for="yInput" style="color: #d4ab7e"/>
+            <h:message for="yInput" style="color: #00BFFF"/>
             <br/>
-            <h:message for="rInput" style="color: #d4ab7e"/>
+            <h:message for="rInput" style="color: #00BFFF"/>
         </div>
     </h:form>
 </h:body>
